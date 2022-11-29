@@ -1,111 +1,38 @@
+<%= stylesheet_link_tag "imagesbag.css" %>
+
 <head>
-  <style>
-  * {
-  margin: 0;
-  padding: 0;
-  }
-
-  body {
-    align-items: center;
-    justify-content: center;
-  }
-
-  .main {
-    display: flex; 
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 10px;
-    gap: 1rem;
-    justify-content: space-around; 
-  }
-
-  .main a {
-    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-    text-decoration: none;
-  }
-
-  .card {
-    color: white;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100%;
-  }
-
-  .card p {
-    margin-bottom: 5px;
-  }
-
-  .bagmon {
-    width: 100%; height: 100%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-  }
-
-  .title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  margin-top: 5vh;
-  margin-bottom: 10vh;
-  }
-
-  .title h1 {
-    color: #32324f;
-    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  }
-
-  .title p {
-    color: #999;
-    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  }
-
-  .titleText {
-    text-align: center;
-  }
-
-  .buttonArea {
-    position: absolute;
-    right: 8vh;
-    background: #32324f;
-    color: #fff;
-    padding: 15px;
-    font-weight: 500;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 17px;
-    transition: 0.3s;
-  }
-
-  </style>
-<head>
-
-<body> 
+  
+</head>
+<body>
   <div class="title"> 
   <div class="titleText">
     <h1>Bagmons</h1>
-    <p>Aqui começa a sua jornada!</p>
   </div>
  <div class='buttonArea'>
-    <%= link_to 'Adicionar um Bagmon', new_bagmon_path %>
+    <%= link_to 'Adicionar Bagmon', new_bagmon_path %>
   </div>
   </div>
-  <div class="main">
-    <% @bagmons.each do |bagmon| %>
-      <a style='background: <%=bagmon.type.color %>' href='/bagmons/<%= bagmon.id %>'>
-        <div class="card">
-          <div class="bagmon">
-            <%= image_tag bagmon.image, size: "250x250" %>
+
+
+  <ul class="cards">
+  <% @bagmons.each do |bagmon| %>
+  <li>
+    <a href="/bagmons/<%= bagmon.id %>" class="card">
+      <img class="card__image" <%= image_tag bagmon.image, size: "250x250" %>
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb5Qoi_84Mdt1CtwVAITWfEo0ahdfrmEJyvnbH2GI8qGvRMC1mOt4X-m6t4j8rNlqLOTw&usqp=CAU" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title"><%= bagmon.number %> - <%= bagmon.name %></h3>            
+            <span class="card__status"><%= bagmon.created_at.strftime('%-d/%-m/%y: %H:%M %Z')%></span>
           </div>
-          <h2><%= bagmon.name %></h2>
-          <p><%= bagmon.type.name %></p>
         </div>
-      </a>
-    <% end %>
-  </div>
+        <p class="card__description"><%= bagmon.type.name %></p>
+      </div>
+    </a>      
+  </li>
+  <% end %>    
+</ul>
+
 </body>

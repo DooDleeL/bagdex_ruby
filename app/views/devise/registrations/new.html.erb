@@ -1,45 +1,83 @@
-<%= stylesheet_link_tag "cadastro.css" %>
+<%= stylesheet_link_tag "login.css", "util.css" %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
- <body>
-    <div class="container-cadastro">
-        <div class="content-box">
-            <div class="form-box">
-                <h2>Cadastro</h2>
-                <form>
-                    <div class="input-box">
-                        <span>E-mail</span>
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Digite seu email" %>
-                    </div>
+ 
+    <body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title">
+						Cadastre-se
+					</span>
 
-                    <div class="input-box">
-                        <span>Senha</span>
-                           <% if @minimum_password_length %>
-                              <em>(Minimo <%= @minimum_password_length %> caracteres)</em>
-                          <% end %><br />
-                     <%= f.password_field :password, autocomplete: "new-password", placeholder: "Digite sua senha" %>
-                    </div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Digite seu email" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                    <div class="input-box">
-                        <span>Confirme sua senha</span>
-                        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirme a senha" %>
-                    </div>
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" <%= f.password_field :password, autocomplete: "new-password", placeholder: "Digite sua senha" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                    <div class="input-box">
-                        <%= f.submit "Registrar" %>
-                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirme a senha" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+                        <%= f.submit "" %>
+							Registrar-se
+						</button>
+					</div>
 
-                     <div class="input-box">
-                       <p>Já possui cadastro? <a href="/users/sign_in">Entrar</a></p>
-                    </div>
+					<div class="text-center p-t-12">
+						<a class="txt2" href="/users/sign_in">
+							Já possui conta?
+						</a>
+					</div>
 
                     <div class="input-box">
                        <%= render "devise/shared/error_messages", resource: resource %>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
 </body>
 
 </html>

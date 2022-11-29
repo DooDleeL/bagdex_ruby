@@ -6,132 +6,147 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag "login.css", "util.css", "header.css" %>
     <%= javascript_include_tag 'application' %>
 
     <style>
-        * {
-  margin: 0;
-  padding: 0;
+    * {
+margin: 0;
+padding: 0;
 }
 
 
-    @media (max-width: 999px) {
-    body {
-      overflow-x: hidden;
-  }
-  .nav-list {
-    position: absolute;
-    top: 8vh;
-    right: 0;
-    width: 50vw;
-    height: 92vh;
-    background: #23232e;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in;
-  }
-  .nav-list li {
-    margin-left: 0;
-    opacity: 0;
-  }
+@media (max-width: 999px) {
+body {
+  overflow-x: hidden;
+}
+.nav-list {
+position: absolute;
+top: 8vh;
+right: 0;
+width: 50vw;
+height: 92vh;
+background: #23232e;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+transform: translateX(100%);
+transition: transform 0.3s ease-in;
+}
+.nav-list li {
+margin-left: 0;
+opacity: 0;
+}
 }
 
-    .nav-list.active {
-  transform: translateX(0);
+.nav-list.active {
+transform: translateX(0);
 }
 
 a {
-  color: #fff;
-  text-decoration: none;
-  transition: 0.3s;
+color: #fff;
+text-decoration: none;
+transition: 0.3s;
 }
 
 a:hover {
-  opacity: 0.7;
+opacity: 0.7;
 }
 
 nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  background: #369e35;
-  height: 8vh;
+display: flex;
+justify-content: space-around;
+align-items: center;
+font-family: Poppins-Regular;
+background: #799CB9;
+height: 12vh;
 }
 
 .nav-list li a [type=submit] {
-    background: #369e35;
-    color: #fff;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 17px;
-    transition: 0.3s;
+background: #799CB9;
+color: #fff;
+outline: none;
+border: none;
+font-weight: 550;
+cursor: pointer;
+font-size: 20px;
+transition: 0.3s;
 }
 
 .nav-list {
-  list-style: none;
-  display: flex;
+list-style: none;
+display: flex;
 }
 
 .nav-list li {
-  margin-left: 32px;
+margin-left: 32px;
 }
 
 .logoArea {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+display: flex;
+justify-content: space-around;
+align-items: center;
 }
 
 .logoArea img {
-    object-fit: contain;
-    height: 60px;
-    width: 70px;
+object-fit: contain;
+height: 60px;
+width: 70px;
 }
 
 .logoArea a {
-  margin-left: 15px;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+background: #799CB9;
+margin-left: 15px;
+font-size: 20px;
+text-transform: uppercase;
+letter-spacing: 4px;
 }
 
 @keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+from {
+opacity: 0;
+transform: translateX(50px);
 }
-    </style>
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+</style>
   </head>
 
 <% if user_signed_in? %>
-  <header>
-    <nav>
-      <div class="logoArea">
-        <img src="https://bagdex.com.br/wp-content/uploads/2022/09/logo_bagdex_01.png">
-        <a href="/">Bagdex</a>
-      </div>
-        <ul class="nav-list">
-          <li><a href="/">Início</a></li>
-          <li><a href="/bagmons">Bagmons</a></li>
-          <li><a href="/types">Tipos</a></li>
-          <li><a href="/battle">Batalhar</a></li>
-          <li><a class="input"><%= button_to "Sair", destroy_user_session_path, method: :delete, data: { confirm: 'Deseja mesmo sair da sua conta?' }  %></a></li>
+
+<header>
+<ul>
+<li><a><%= button_to "Sair", destroy_user_session_path, method: :delete, data: { confirm: 'Deseja mesmo sair da sua conta?' }  %></a></li>
+</ul>
+  <nav id='menu'>
+    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+    <ul>
+      <li><a href='/home/index'>Início</a></li>
+      <li><a class='dropdown-arrow' href='/types'>Tipos</a>
+        <ul class='sub-menus'>
+          <li><a href='/types'>Ver tipos</a></li>
+          <li><a href='/types/new'>Criar tipos</a></li>
         </ul>
-      </nav>
-  </header>
+      </li>
+      <li><a class='dropdown-arrow' href='/bagmons'>Bagmons</a>
+        <ul class='sub-menus'>
+          <li><a href='/bagmons'>Ver Bagmons</a></li>
+          <li><a href='/bagmons/new'>Criar Bagmons</a></li>
+        </ul>
+      </li>
+      <li><a href='/battle'>Batalhar</a></li>
+      <li><a href='#'>Sair</a></li>
+  </nav>
+
+</header>
 <% end %>
 
   <body>
     <%= yield %>
   </body>
 </html>
+
+

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,28 +14,26 @@
 }
 
 body {
-    background: url(https://bagdex.com.br/wp-content/uploads/2022/09/fundo_site_01.png) no-repeat center center;
     background-size: cover;
 }
 
 main {
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 
 .content {
   flex-direction: column;
-  padding: 20px;
+  padding: 50px;
   display: flex;
-  align-items: center;
+  align-items: left;
 }
 
 .content h1 {
   color: #32324f;
   margin: 10px;
   margin-bottom: 30px;
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-family: Poppins-Regular;
 }
 
 .content p {
@@ -41,7 +41,7 @@ main {
   font-size: 20px;
   color: #32324f;
   width: 63vw;
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-family: Poppins-Regular;
 }
 
 .imagem {
@@ -70,18 +70,35 @@ main {
   letter-spacing: 4px;
 }
 
+.container{
+  height: 200px;
+  width: 500px;
+  border: 2px solid black;
+  margin-top: 30px;
+}
+
     </style>
   </head>
-
   <body>
+    <div class="content">
+      <h1 style="text-align:left;">Cadastrar Bagmons</h1>
+      <a href="/bagmons">
+        <button class="btn btn-primary btn-lg">Bagmons</button>
+      </a>
+    </div>
+    <div class="content">
+      <h1 style="text-align:left;">Cadastrar Tipos de Bagmons</h1>
+      <a href="/types">
+        <button class="btn btn-primary btn-lg">Tipos</button>
+      </a>
+    </div>
+    <div class="content">
+      <h1 style="text-align:left;">Batalhar Bagmons</h1>
+      <a href="/battle">
+        <button class="btn btn-primary btn-lg">Batalhar</button>
+      </a>
+    </div>
     <main>
-    <div class='content'>
-      <h1>A jornada está prestes a começar!</h1>
-      <p>A Bágdex é um projeto autoral que se iniciou em 2021, com o objetivo de enaltecer a cultura e a diversidade do nosso país através de personagens e histórias. Um universo que está sendo criado e expandido cada vez mais para mostrar tudo o que temos de incrível no Brasil. Seja criança, jovem ou adulto, a Bágdex foi pensada e criada para gerar conexão com o povo brasileiro de uma forma lúdica e diferente. Esse aplicativo é o primeiro passo de uma grande jornada. Venha conhecer cada um dos Bágmon e se aventurar conosco!</p>
-    </div>
-    <div class='imagem'>
-      <img width="400" height="400" src="https://bagdex.com.br/wp-content/uploads/2022/09/artes_site_01-2-1024x941.png"/>
-    </div>
     </main>
   </body>
 </html>

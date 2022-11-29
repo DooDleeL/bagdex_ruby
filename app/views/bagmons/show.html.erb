@@ -1,10 +1,11 @@
+<%= stylesheet_link_tag "editbag.css" %>
 <head>
   <style>
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins-Regular;
   }
 
   .img-tst {
@@ -20,6 +21,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding:10px;
+    font-size: 22px;
   }
 
   .btn {
@@ -52,28 +55,31 @@
     color: #32324f;
   }
 
+  .ttitle{
+    padding:200px;
+  }
+
   </style>
 </head>
 
 <body>
+  
   <div class="mainImage">
-    <p>
-      <img class='img-tst' src=<%= @bagmon.image %> >
-    </p>
-    <h2 style="color: <%= @bagmon.type.color %>">
-      <%= @bagmon.name %>
-    </h2>
-    
-    <p style="margin-top: 5px;">
-      <strong>Numero:</strong>
-      <%= @bagmon.number %>
-    </p>
-    
-    <p style="margin-top: 5px;">
-      <strong>Tipo:</strong>
-      <%= @bagmon.type.name %>
-    </p>
 
+  <div class="a-box">
+  <div class="img-container">
+    <div class="img-inner">
+      <div class="inner-skew">
+        <img src=<%= @bagmon.image %> >
+      </div>
+    </div>
+  </div>
+  <div class="text-container">
+    <h3><%= @bagmon.number %> - <%= @bagmon.name %></h3>
+    <div>
+      <%= @bagmon.type.name %>
+  </div>
+  </div>
 
   <div class="btn">
     <button class="back-btn"> <%= link_to 'Voltar', bagmons_path %> </button>
@@ -81,6 +87,7 @@
   </div>
 
   </div>
+
 </body>
 
 

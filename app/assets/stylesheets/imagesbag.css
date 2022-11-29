@@ -1,0 +1,225 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url(poppins/Poppins-Regular.ttf) format("truetype"); 
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url(poppins/Poppins-Bold.ttf) format("truetype"); 
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url(poppins/Poppins-Medium.ttf) format("truetype"); 
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url(montserrat/Montserrat-Bold.ttf) format("truetype"); 
+}
+
+:root {
+    --surface-color: #fff;
+    --curve: 40;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Poppins-Regular;
+    background-color: #ffffff;
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 5vw;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .card {
+    position: relative;
+    display: block;
+    height: 100%;  
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .card__image {      
+    width: 100%;
+    height: auto;
+
+  }
+  
+  .card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;      
+    border-radius: calc(var(--curve) * 1px);    
+    background-color: var(--surface-color);      
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card:hover .card__overlay {
+    transform: translateY(0);
+  }
+  
+  .card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;    
+    background-color: var(--surface-color);
+    transform: translateY(-100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;      
+    z-index: 1;
+  }
+  
+  .card__arc path {
+    fill: var(--surface-color);
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  }       
+  
+  .card:hover .card__header {
+    transform: translateY(0);
+  }
+  
+  .card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;      
+    border-radius: 50%;      
+  }
+  
+  .card__title {
+    font-size: 1em;
+    margin: 0 0 .3em;
+    color: #6A515E;
+  }
+  
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: Poppins-Regular;  
+    font-size: .8em; 
+    color: #D7BDCA;  
+  }
+  
+  .card__status {
+    font-size: .8em;
+    color: #D7BDCA;
+  }
+  
+  .card__description {
+    padding: 0 2em 2em;
+    margin: 0;
+    color: #363636;
+    font-family: Poppins-Regular;   
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }    
+
+  * {
+    margin: 0;
+    padding: 0;
+    }
+  
+    body {
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .main {
+      display: flex; 
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 10px;
+      gap: 1rem;
+      justify-content: space-around; 
+    }
+  
+    .main a {
+      font-family: Poppins-Regular;
+      text-decoration: none;
+    }
+  
+    .card {
+      color: white;
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100%;
+    }
+  
+    .card p {
+      margin-bottom: 5px;
+    }
+  
+    .bagmon {
+      width: 100%; height: 100%; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+    }
+  
+    .title {
+    display: inline-block;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins-Regular;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    }
+  
+    .title h1 {
+      color: black;
+      font-family: Poppins-Regular;
+    }
+  
+    .title p {
+      color: #999;
+      font-family: Poppins-Regular;
+    }
+  
+    .titleText {
+      text-align: center;
+    }
+  
+    .buttonArea {
+
+      position: relative;
+      text-align: center;
+      width: 50%;
+      background: #323333;
+      color: #FFFFFF;
+      padding: 10px;
+      font-weight: 500;
+      align-items: center;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 17px;
+      left: 25%;
+      right: 25%;
+    }

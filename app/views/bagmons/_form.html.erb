@@ -28,6 +28,7 @@
 
 .content-box {
     display: flex;
+    padding: 50px; 
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -106,7 +107,7 @@
 
 
 .content-box .form-box .input-box input[type=submit] {
-    background: #32324f;
+    background: black;
     color: #fff;
     outline: none;
     border: none;
@@ -159,11 +160,12 @@
 
     .input-box .btn {
         text-align: center;
+        padding: 10px;
     }
 
   .input-box .btn button {
     padding: 5px;
-    background-color: #369e35;
+    background-color:black;
     color: #000;
     font-size: 15px;
     border: none;
@@ -180,33 +182,45 @@
         <div class="content-box">
             <div class="form-box">
             <div class="img-box">
-            <img src="https://bagdex.com.br/wp-content/uploads/2022/09/logo_bagdex_01.png">
             </div>
-                <h2>Criar Bagmon</h2>
+                <h2>Bagmon</h2>
                 <form>
-                    <div class="input-box">
-                        <span>Numero</span>
-                        <%= form.number_field :number, class: "form-control", placeholder: "Informe a numero/id do Bagmon" %>
-                    </div>
 
-                    <div class="input-box">
-                        <span>Nome</span>
-                       <%= form.text_field :name, class: "form-control", placeholder: "Informe o nome do Bagmon" %>
-                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" <%= form.number_field :number, class: "form-control", placeholder: "ID do Bagmon" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                    <div class="input-box">
-                        <span>Imagem (URL)</span>
-                        <%= form.text_field :image, class: "form-control", placeholder: "Informe a imagem do Bagmon" %>
-                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" <%= form.text_field :name, class: "form-control", placeholder: "Nome do Bagmon" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" <%= form.text_field :image, class: "form-control", placeholder: "Imagem do Bagmon" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
                     <div class="input-box">
                         <span>Tipo do Bagmon</span>
                          <%= form.select("type_id", @type_options, {include_blank: 'Selecione...'}, {:multiple => false, class: "form-control"}) %>
                     </div>
 
-                     <div class="input-box">
-                        <%= form.submit "Enviar" %>
-                    </div>
+                    <div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+                        <%= form.submit "" %>
+							Enviar
+						</button>
+					</div>
 
                      <div class="input-box">
                         <div class="btn">
@@ -218,7 +232,7 @@
                       <% if bagmon.errors.any? %>
                         <div id="error_explanation">
                        <ul>
-                          <span style="color: red">Ops! Problema ao salvar:</span>
+                          <span style="color: red">Erro:</span>
                             <% bagmon.errors.full_messages.each do |message| %>
                           <li><%= message %></li>
                        <% end %>

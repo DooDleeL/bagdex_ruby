@@ -183,6 +183,7 @@
 .input-box .btn {
     width: 100%;
     text-align: center;
+    padding: 10px;
 }
 
   </style>
@@ -198,29 +199,42 @@
             </div>
                 <h2>Editar Bagmon</h2>
                 <form>
-                    <div class="input-box">
-                        <span>Numero</span>
-                        <%= formEdit.number_field :number, class: "form-control", placeholder: "Informe a numero/id do Bagmon" %>
-                    </div>
 
-                    <div class="input-box">
-                        <span>Nome</span>
-                       <%= formEdit.text_field :name, class: "form-control", placeholder: "Informe o nome do Bagmon" %>
-                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" <%= formEdit.number_field :number, class: "form-control", placeholder: "Id do Bagmon" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                    <div class="input-box">
-                        <span>Imagem (URL)</span>
-                        <%= formEdit.text_field :image, class: "form-control", placeholder: "Informe a imagem do Bagmon" %>
-                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" <%= formEdit.text_field :name, class: "form-control", placeholder: "Nome do Bagmon" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" <%= formEdit.text_field :image, class: "form-control", placeholder: "Imagem do Bagmon" %>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
                     <div class="input-box">
                         <span>Tipo do Bagmon</span>
                          <%= formEdit.select("type_id", @type_options, {include_blank: 'Selecione...'}, {:multiple => false, class: "form-control"}) %>
                     </div>
 
-                     <div class="input-box">
-                        <%= formEdit.submit "Enviar" %>
-                    </div>
+                    <div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+                        <%= formEdit.submit "" %>
+							Enviar
+						</button>
+					</div>
 
                      <div class="input-box">
                         <div class="btn">
