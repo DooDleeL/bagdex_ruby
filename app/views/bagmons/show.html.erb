@@ -51,6 +51,16 @@
     border-radius: 5px;
   }
 
+  .input-box .btn .btn-delete {
+    padding: 5px;
+    background-color: #800000;
+    color: #000;
+    font-size: 15px;
+    border: none;
+    width: 100px;
+    border-radius: 5px;
+  }
+
   .mainImage p {
     color: #32324f;
   }
@@ -85,8 +95,13 @@
     <button class="back-btn"> <%= link_to 'Voltar', bagmons_path %> </button>
     <button> <%= link_to 'Editar', edit_bagmon_path(@bagmon) %> </button>
   </div>
-
+  
   </div>
+  <div class="input-box">
+                        <div class="btn">
+                            <button class='btn-delete'> <%= link_to 'Excluir', @bagmon, method: :delete, data: { confirm: 'Confirma a exclusão do Bagmon?' } %> </button>
+                        </div>
+                    </div>
 
 </body>
 
